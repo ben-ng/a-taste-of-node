@@ -12,8 +12,9 @@
 * inception()()('stop') => 3
 *
 * Helpful Hint:
-* Edit the template provided below -- you're only four
-* lines of code away from success!
+* You're only two lines away from success!
+* Think about how to make inception('stop') return 1
+* Then think about what the recursive case should be
 *
 * Run this file to test your solution! `node inception.js`
 *
@@ -23,23 +24,16 @@
 * @param stop - Whether or not the first call should stop
 */
 function inception(shouldStop) {
-  // THINK: Do you understand why inception('stop') returns 1?
   return makeInception(1)(shouldStop);
 }
 
-/**
-* makeInception is a helper method that creates functions.
-*
-* @param depth - The integer that the created function should
-*                return if it is called with 'stop'
-*/
 function makeInception(depth) {
   return function (shouldStop) {
-    // YOUR CODE HERE!
-    // HINT: note that you can use the depth variable from here
-    //       and even make recursive calls to makeInception()
+    if(shouldStop == 'stop')
+      return -1; // FIXME.
+    else
+      return -1; // FIXME.
   };
 }
 
-// Don't touch! Runs the tests on your solution
-require('../tests/inception.js')(inception);
+module.exports = inception;

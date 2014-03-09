@@ -32,5 +32,4 @@ function missingno(input) {
   return null;
 }
 
-// Don't touch! Runs the tests on your solution
-require('../tests/missingno.js')(missingno);
+module.exports = missingno;

@@ -15,7 +15,4 @@ module.exports = function (missingno) {
 
   assert.strictEqual(missingno([2, 1, 3, 5]), 4
     , 'missingno([2, 1, 3, 5]) should return 4');
-
-  console.log('All tests passed.');
-  console.log('You nailed it! Now go help your neighbor.');
 };
