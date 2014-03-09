@@ -13,33 +13,23 @@ username = 'Anonymous';
 * that input goes into the process.stdin stream.
 * If we listen for the 'data' event, we can act on
 * their input.
-*
-* TODO: When user input comes in, send it to the server!
-* HINT: The duplex stream has a _data method for sending data
 */
 process.stdin.on('data', function (data) {
   var message = username + ' > ' + data.toString();
 
-  // Your one-liner here:
   messageStream._data(message);
 });
 
 /**
-* Duplex streams emit the _data event when data comes in
+* messageStream emits the _data event when data comes in
 * from the other end of the pipe (i.e. the chat server)
-*
-* TODO: Print out the incoming message to the console
-* HINT: data is a binary buffer. Call data.toString() to
-*       turn it into a human-readable string
 */
 messageStream.on('_data', function (data) {
-
-  // Your one-liner here:
   console.log(data.toString());
 });
 
 /**
-* The _end event occurs when the connection is closed
+* messageStream emits the _end event occurs when the connection is closed
 * (e.g. if the server crashes or you get disconnected from the internet)
 */
 messageStream.on('_end', function () {

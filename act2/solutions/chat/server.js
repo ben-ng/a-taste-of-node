@@ -9,7 +9,7 @@ var net = require('net')
 
     // tug of war fun!
   , tugOWar = {
-      length: 9 // so we always have a winner
+      length: 9
     , left: 4
     }
   , pullLeft
