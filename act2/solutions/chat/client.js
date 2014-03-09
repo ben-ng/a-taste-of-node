@@ -1,6 +1,6 @@
 var net = require('net')
   , port = 8080
-  , host = 'chat.benng.me'
+  , host = 'chat.benng.me' // Obviously change this to wherever you're hosting the server
   , messageStream = require('duplex')()
   , username
   , client;
