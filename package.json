@@ -24,6 +24,6 @@
   "homepage": "https://github.com/ben-ng/a-taste-of-node",
   "dependencies": {
     "cli-color": "^0.2.3",
-    "message-stream": "^1.0.1"
+    "duplex": "^1.0.0"
   }
 }
