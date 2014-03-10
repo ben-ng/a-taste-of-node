@@ -24,15 +24,13 @@
 * @param stop - Whether or not the first call should stop
 */
 function inception(shouldStop) {
-  return makeInception(1)(shouldStop);
+  // Your solution here
+  return null;
 }
 
 function makeInception(depth) {
   return function (shouldStop) {
-    if(shouldStop == 'stop')
-      return -1; // FIXME.
-    else
-      return -1; // FIXME.
+    // Your solution here
   };
 }
 
