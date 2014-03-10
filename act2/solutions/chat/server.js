@@ -1,9 +1,10 @@
 var net = require('net')
   , duplex = require('duplex')
+  , args = require('minimist')(process.argv.slice(2))
   , EventEmitter = new require('events').EventEmitter
   , createStream
   , chat
-  , port = process.argv.pop();
+  , port = args.port || 8080;
 
 // The duplex streams communicate using this EventEmitter
 chat = new EventEmitter();

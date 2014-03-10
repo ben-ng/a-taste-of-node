@@ -1,9 +1,12 @@
 var net = require('net')
-  , port = 8080
-  , host = 'chat.benng.me'
+  , args = require('minimist')(process.argv.slice(2))
+  , port = args.port || 8080
+  , host = args.host || 'chat.benng.me'
   , messageStream = require('duplex')()
   , username
   , client;
+
+console.log('Connecting to ' + host + ':' + port);
 
 // Change this to your name!
 username = 'Anonymous';
