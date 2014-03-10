@@ -27,8 +27,11 @@ createStream = function () {
 
   // This happens when the connection is killed
   messageStream.on('_end', function () {
-    // Sends messages to everybody on the system
     this._end();
+  });
+
+  messageStream.on('error', function () {
+    messageStream._end();
   });
 
   // When something happens in the chat, send it to the user
@@ -43,6 +46,12 @@ createStream = function () {
 };
 
 net.createServer(function (connection) {
+
+  // Kill connection if it breaks (*waves fist at windows*)
+  connection.on('error', function () {
+    connection.end();
+  });
+
   // Create a new duplex stream per user
   connection.pipe(createStream()).pipe(connection);
 

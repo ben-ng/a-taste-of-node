@@ -170,6 +170,11 @@ changeChallenge();
 // Create the TCP server
 net.createServer(function (connection) {
 
+  // Kill connection if it breaks (*waves fist at windows*)
+  connection.on('error', function () {
+    connection.end();
+  });
+
   // Create a new duplex stream per user
   connection.pipe(createStream()).pipe(connection);
 
