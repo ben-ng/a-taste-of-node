@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "duplex": "^1.0.0",
-    "optimist": "^0.6.1",
     "minimist": "0.0.8"
   }
 }
