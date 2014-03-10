@@ -5,6 +5,10 @@
 * write a function that prints out the
 * integer that is missing
 *
+* - The array won't have duplicates
+* - There will be no more than 1 missing integer
+* - but there might not be a missing integer either
+*
 * Example Input => Output
 * missingno([]) => null
 * missingno([3, 1]) => 2

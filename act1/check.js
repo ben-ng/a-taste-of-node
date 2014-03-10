@@ -1,28 +1,59 @@
 var color = require('cli-color')
+  , domain = require('domain')
+  , async = require('async')
   , green = color.green
-  , red = color.red
   , boldRed = color.red.bold
-  , test;
+  , test
+  , run
+  , skipExercises = (process.argv.pop() === 'solutions');
 
 test = function (module) {
-  console.log(green('Checking ' + module + '...'));
+  return function (cb) {
+    console.log(green('Checking ' + module + '...'));
 
-  var t = require('./tests/' + module);
+    var t = require('./tests/' + module)
+      , d = domain.create();
 
-  // Check our solution first
-  t(require('./solutions/' + module));
+    d.on('error', function (err) {
+      if(err) {
+        console.log(boldRed('Error: ') + err.message);
+        console.log(err.stack);
+      }
+    });
 
-  try {
-    // Check their solution
-    t(require('./exercises/' + module));
+    d.run(function () {
+      var queue = [
+        run(t, require('./solutions/' + module))
+      ];
 
-    console.log(green('> PASSED!'));
-  }
-  catch(e) {
-    console.log(boldRed('> FAILED: ') + red(e.message));
-    console.log(e.stack);
-  }
+      if(!skipExercises) {
+        queue.push(run(t, require('./exercises/' + module)));
+      }
+
+      async.series(queue, function () {
+        console.log(green('All tests passed!'));
+        cb();
+      });
+    });
+  };
 };
 
-test('missingno');
-test('inception');
+run = function (assert, solution) {
+  return function (cb) {
+    // async tests
+    if(assert.length == 2) {
+      assert(solution, cb);
+    }
+    // sync tests
+    else {
+      assert(solution);
+      setTimeout(cb, 0);
+    }
+  };
+};
+
+async.series([
+  test('missingno')
+, test('sleepsort')
+, test('inception')
+]);
