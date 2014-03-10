@@ -1,6 +1,6 @@
 {
   "name": "a-taste-of-node",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A short node workshop",
   "main": "index.js",
   "scripts": {
