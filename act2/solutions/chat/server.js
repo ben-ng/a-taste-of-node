@@ -4,7 +4,7 @@ var net = require('net')
   , createStream
   , chat
   , onlineCount = 0
-  , port = 8080
+  , port = process.argv.pop()
   , maxConnections = 150
 
     // tug of war fun!

@@ -9,14 +9,14 @@ var net = require('net')
 username = 'Anonymous';
 
 /*
-* When a user types into the console and hits enter,
-* that input goes into the process.stdin stream.
-* If we listen for the 'data' event, we can act on
-* their input.
-*
-* TODO: When user input comes in, send it to the server!
+* When user input comes in, send it to the server!
 * HINT: The duplex stream has a _data method for sending data
 */
+process.stdin.on('data', function (data) {
+  var message = username + ' > ' + data.toString();
+
+  // Your solution here
+});
 
 /**
 * messageStream emits the _data event when data comes in
