@@ -16,7 +16,7 @@
 * Think about how to make inception('stop') return 1
 * Then think about what the recursive case should be
 *
-* Run this file to test your solution! `node inception.js`
+* To test your solution: `node act1/check.js`
 *
 */
 

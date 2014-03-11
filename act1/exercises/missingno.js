@@ -24,7 +24,7 @@
 * Array.length gives you its length:
 *  [3, 2, 1].length => 3
 *
-* Run this file to test your solution! `node missingno.js`
+* To test your solution: `node act1/check.js`
 *
 */
 
