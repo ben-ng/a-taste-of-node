@@ -47,14 +47,14 @@ chat.on('message', function (data, src, silent) {
 
         currentChallenge = null;
 
-        chat.emit('message', 'CHALLENGE SOLVED BY ' + team + '!');
+        chat.emit('message', 'CHALLENGE SOLVED BY ' + team + '!\n');
 
         if(team == 'L')
           pullLeft(1);
         else
           pullRight(1);
 
-        chat.emit('message', 'NEXT CHALLENGE IN ' + delay + ' seconds!');
+        chat.emit('message', 'NEXT CHALLENGE IN ' + delay + ' seconds!\n');
         return;
       }
     }
